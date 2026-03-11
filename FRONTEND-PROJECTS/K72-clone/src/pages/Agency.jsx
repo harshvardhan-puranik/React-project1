@@ -6,7 +6,10 @@ const Agency = () => {
   const imageDivRef = useRef(null)
   useGSAP(
     function(){
-      gsap.to(imageDivRef.current)
+      gsap.to(imageDivRef.current,{
+        x:500,
+        repeat:5
+      })
     }
   )
   return (
