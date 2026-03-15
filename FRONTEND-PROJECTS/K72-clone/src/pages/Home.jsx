@@ -2,6 +2,7 @@ import React from 'react'
 import Video from '../components/home/Video'
 import Homeherotext from '../components/home/Homeherotext'
 import Homebottomtext from '../components/home/Homebottomtext'
+import Content from '../components/home/Content'
 const Home = () => {
   return (
   <div>
@@ -10,6 +11,7 @@ const Home = () => {
     </div>
     <div className="h-screen w-screen overflow-hidden relative flex flex-col justify-between text-white">
       <Homeherotext></Homeherotext>
+      <Content/>
       <Homebottomtext></Homebottomtext>
     </div>
   </div>
