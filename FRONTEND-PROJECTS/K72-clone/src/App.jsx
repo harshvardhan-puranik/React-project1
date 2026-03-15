@@ -4,19 +4,20 @@ import Home from './pages/Home'
 import Agency from './pages/Agency'
 import Projects from './pages/Projects'
 import Navbar from './components/Navigation/Navbar'
+import Navfull from './components/Navigation/Navfull'
 
 
 const App = () => {
   
   return (
     <div>
-      <Navbar/>
+       <Navbar/>
       <Routes>
-        
+        <Route path='/menu' element={<Navfull/>}/>
         <Route path='/' element={<Home />} />
         <Route path='/agency' element={<Agency />} />
         <Route path='/projects' element={<Projects />} />
-      </Routes>
+      </Routes> 
     </div>
   )
 }
