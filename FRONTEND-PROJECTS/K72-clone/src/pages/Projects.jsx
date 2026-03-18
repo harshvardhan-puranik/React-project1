@@ -1,5 +1,8 @@
 import React from 'react'
 import ProjectCard from '../components/projects/ProjectCard'
+import { useGSAP } from '@gsap/react'
+import ScrollTrigger from 'gsap/src/ScrollTrigger'
+import gsap from 'gsap'
 const projects = () => {
   const projects =
     [
@@ -28,15 +31,31 @@ const projects = () => {
         image2: 'https://k72.ca/images/caseStudies/FRUITE/Fruite_thumbnail_bbq.jpg?w=1280&h=960&s=953c1f702bec28d66d07e95bc1261821'
       }
     ]
+    gsap.registerPlugin(ScrollTrigger)
+    useGSAP(function(){
+      gsap.from('.hero',{
+        height:'100px',
+        stagger:{
+          amount:0.4
+        },
+        scrollTrigger:{
+          markers:true,
+          trigger: '.parent',
+          start:'top 10%',
+          end:'top -350%',
+          scrub:true
+        }
+      })
+    })
   return (
-    <div className='p-4'>
+    <div className='p-4 mb-[100vh]'>
       <div className='pt-[45vh]'>
         <h2 className='font-[font2] text-[9.5vw] text-black uppercase'>Projects</h2>
       </div>
-      <div className='-mt-10'>
-        {projects.map((elem, key) => {
-          return <div className='w-full h-160 mb-4 flex gap-4'>
-            <ProjectCard image1={elem.image1} image2={elem.image2} key={key} />
+      <div className='-mt-10 parent'>
+        {projects.map(function(elem,idx){
+          return <div key={idx} className='hero w-full h-160 mb-4 flex gap-4'>
+            <ProjectCard image1={elem.image1} image2={elem.image2}  />
           </div>
         })}
       </div>
