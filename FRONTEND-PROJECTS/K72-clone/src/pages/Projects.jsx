@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import ProjectCard from '../components/projects/ProjectCard'
 import { useGSAP } from '@gsap/react'
 import ScrollTrigger from 'gsap/src/ScrollTrigger'
 import gsap from 'gsap'
+
 const projects = () => {
+  
   const projects =
     [
       {
@@ -34,14 +36,14 @@ const projects = () => {
     gsap.registerPlugin(ScrollTrigger)
     useGSAP(function(){
       gsap.from('.hero',{
-        height:'100px',
+        height:'200px',
         stagger:{
           amount:0.4
         },
         scrollTrigger:{
           trigger: '.parent',
           start:'top 10%',
-          end:'top -350%',
+          end:'top -460%',
           scrub:true
         }
       })
@@ -53,7 +55,7 @@ const projects = () => {
       </div>
       <div className='lg:-mt-10 sm:-mt-5 mt-0 parent'>
         {projects.map(function(elem,idx){
-          return <div key={idx} className='hero w-full lg:h-160 h-120 mb-4 flex gap-4'>
+          return <div key={idx} className='hero w-full lg:h-160 h-120 mb-4 flex lg:flex-row flex-col  gap-4'>
             <ProjectCard image1={elem.image1} image2={elem.image2}  />
           </div>
         })}
