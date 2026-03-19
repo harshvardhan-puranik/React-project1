@@ -8,7 +8,7 @@ import Navfull from './components/Navigation/Navfull'
 
 
 const App = () => {
-  
+
   return (
     <div className='overflow-x-hidden'>
        <Navbar/>
